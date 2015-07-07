@@ -21,7 +21,7 @@ class Terminal:
     def run(self):
         window = self.builder.get_object("window1")
         window.set_title("terminal")
-        window.set_default_size(480, 340)
+        window.set_default_size(640, 480)
 
         terminal = Vte.Terminal()
         terminal.connect("child-exited", Handler.onDeleteWindow)
@@ -46,25 +46,3 @@ class Terminal:
 if __name__ == "__main__":
     app = Terminal()
     app.run()
-
-
-
-
-
-#terminal = Vte.Terminal()
-#terminal.spawn_sync(
-#    Vte.PtyFlags.DEFAULT,
-#    os.environ['HOME'],
-#    ["/bin/bash"],
-#    [],
-#    GLib.SpawnFlags.DO_NOT_REAP_CHILD,
-#    None,
-#    None,
-#    )
-
-#win = Gtk.Window()
-#win.connect('delete-event', Gtk.main_quit)
-#win.add(terminal)
-#win.show_all()
-
-#Gtk.main()
